@@ -1,6 +1,6 @@
 <?php
 /**
- * se_optionsWidget used to add administer the widget from the dashboard and
+ * qt_optionsWidget used to add administer the widget from the dashboard and
  * render it in the front end.
  */
 class qt_optionsWidget extends WP_Widget {
@@ -47,33 +47,36 @@ class qt_optionsWidget extends WP_Widget {
    	function widget($args, $instance) {
 					global $post;
 					global $current_user;
-					extract( $args );
-					$owner = ($current_user->ID == $post->post_author || current_user_can('administrator'));
-    	$title = apply_filters('widget_title', $instance['title']);
-							
-					$html = $owner ? 'Search tags: <input id="qt_addTags"	name="qt_addTags" value="" />' : '';
-					$html .= '<div class="clear"></div>';
-
-					$html .= '<div class="qt_postTags">';
-					$posttags = get_the_tags();
-					if ($posttags) {
-					  foreach($posttags as $tag) {
-					    $html .= '<span id="tag-' . $tag->term_id . '" class="qt_postTag">';
-					     $html .= '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a> ';
-					     if($owner){
-						     $html .= '<img src="' . plugins_url('images/no-nohover.png', __FILE__) . '" class="removeTag" data-tagid="' . $tag->term_id . '" alt="Remove tag" title="Remove tag" />';
-					     }
-					    $html .= '</span> '; 
-					  }
-					}
-			  $html .= '</div>';					
-					$html .= '<div class="clear"></div>';
-							
-					//Render the widget
-     echo $before_widget;
-    	echo $before_title . $title . $after_title;
-	  		echo $html;
-     echo $after_widget;
+					if(is_single()){
+						extract( $args );
+						$owner = current_user_can('edit_post', $post->ID);
+	    	$title = apply_filters('widget_title', $instance['title']);
+								
+						$html = $owner ? 'Search tags: <input id="qt_addTags"	name="qt_addTags" value="" />' : '';
+						$html .= '<div class="clear"></div>';
+	
+						$html .= '<div class="qt_postTags">';
+						$posttags = get_the_tags();
+						if ($posttags) {
+						  foreach($posttags as $tag) {
+						    $html .= '<span id="tag-' . $tag->term_id . '" class="qt_postTag">';
+						     $html .= '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a> ';
+						     if($owner){
+							     $html .= '<img src="' . plugins_url('images/no-nohover.png', __FILE__) . '" class="removeTag" data-tagid="' . $tag->term_id . '" alt="Remove tag" title="Remove tag" />';
+						     }
+						    $html .= '</span> '; 
+						  }
+						}
+				  $html .= '</div>';
+				  $html .= '<input type="hidden" id="qt_postID" name="qt_postID" value="' . $post->ID . '" />';
+						$html .= '<div class="clear"></div>';
+								
+						//Render the widget
+	     echo $before_widget;
+	    	echo $before_title . $title . $after_title;
+		  		echo $html;
+	     echo $after_widget;
+     }
     }
 
     /** @see WP_Widget::update */

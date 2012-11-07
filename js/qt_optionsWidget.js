@@ -13,7 +13,7 @@
 		addTag: function(tag, postID){
 			var thisObj = this;
 			if(postID == undefined){
-				postID = $('#postID').val();
+				postID = $('#qt_postID').val();
 			}
 			$.ajax({
 					url     : qtJS.ajaxurl,
@@ -133,7 +133,7 @@
 			var thisObj = this;
 			removeButton.click(function(){
 				var tagID = $(this).attr('data-tagid');
-				var postID = $('#postID').val();
+				var postID = $('#qt_postID').val();
 				thisObj.removeTag(postID, tagID);
 			})
 		},

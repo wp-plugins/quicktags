@@ -2,7 +2,7 @@
 Contributors: rafdizzle86
 Donate link: http://www.rafilabs.com/
 Tags: tags, quick tags, autocomplete, jquery ui
-Stable tag: 0.0.1
+Stable tag: 0.0.2
 Requires at least: 3.0.1
 Tested up to: 3.4.2
 License: GPLv2 or later
@@ -30,5 +30,10 @@ that have been added to the post.
 
 == Changelog ==
 
-= 0.1 =
+= 0.0.2 =
+*Fixed issue with postID not being properly sent via AJAX
+*Fixed issue with widget rendering outside single posts (it's now only displayed when is_single==true)
+*Minor code enhancements
+
+= 0.0.1 =
 First version release!

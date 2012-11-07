@@ -3,7 +3,7 @@
 Plugin Name: QuickTags
 Plugin URI: http://www.rafilabs.com/quicktags
 Description: Provides the current logged in user to easily tag their posts from the front end.
-Version: 0.0.1
+Version: 0.0.2
 Author: RafiLabs
 Author URI: http://www.rafilabs.com
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 if($_SERVER['SERVER_NAME']=='localhost'){;
-	require_once($_SERVER['DOCUMENT_ROOT'].'/iel-dev/wp-includes/pluggable.php');
+	require_once($_SERVER['DOCUMENT_ROOT'].'/wp_dev/wp-includes/pluggable.php');
 }else{
 	require_once ($_SERVER['DOCUMENT_ROOT'].'/wp-includes/pluggable.php');
 }
