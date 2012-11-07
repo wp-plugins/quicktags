@@ -31,11 +31,12 @@ class qt_optionsWidget extends WP_Widget {
 				
 				static function enqueueJS(){
 	    	wp_register_script('qt_optionsWidgetJS', plugins_url('js/qt_optionsWidget.js', __FILE__), array( 'jquery' ));
+	    	wp_register_script('jquery_ui_1_8_18_min', plugins_url('js/jquery.ui.1.8.18.min.js', __FILE__), array( 'jquery' ));   
 	    	wp_enqueue_script( 'qt_optionsWidgetJS' );
-	    	wp_enqueue_script( 'jquery-ui-core');
+	    	wp_enqueue_script( 'jquery_ui_1_8_18_min');
 	    	wp_enqueue_script( 'jquery-ui-widget');
 	    	wp_enqueue_script( 'jquery-ui-position');	    	
-	    	wp_enqueue_script( 'jquery-ui-autocomplete');
+	    	wp_enqueue_script( 'jquery-ui-autocomplete', array(), array( 'jquery-ui-core') );
 						wp_localize_script( 'qt_optionsWidgetJS', 'qtJS', array( 
 								'ajaxurl' => admin_url( 'admin-ajax.php' ),
 								'qtNonce' => wp_create_nonce( 'qt_nonce' ),
