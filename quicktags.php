@@ -33,6 +33,7 @@ if ( !class_exists("quicktags") ) {
 		
 		static function enqueueJS(){
 			wp_enqueue_script('jquery');
+			wp_enqueue_script('jquery-ui-autocomplete');			
 		}
 		
 	}//end quicktags class
