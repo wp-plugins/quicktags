@@ -40,3 +40,8 @@ that have been added to the post.
 
 = 0.0.1 =
 First version release!
+
+== Upgrade Notice ==
+
+= 0.0.3 =
+* Fixes showstopper bugs. Users should upgrade to this working version immediately.
