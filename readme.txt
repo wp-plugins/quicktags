@@ -30,6 +30,11 @@ that have been added to the post.
 
 == Changelog ==
 
+= 0.0.4 =
+* Removed separate jquery-ui library as a new one is now included in WP 3.5
+* Fixed issue with drag n' drop in WP 3.5.1 in widgets area
+* Fixed issue including files for localhost domains
+
 = 0.0.3 =
 * Added jquery-ui extended library to resolve some JS bugs
 
